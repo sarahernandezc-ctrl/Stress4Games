@@ -58,9 +58,7 @@ public class LanaTransform : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.CompareTag("Lana") && Input.GetKeyDown(KeyCode.E) && isLana == false) // cuando el jugador toca este objeto
-        {            
-            //PointOfView.localPosition = Vector3.zero;
-            
+        {                     
             Debug.Log("Colisión detectada con Lana");
 
             LanaObject.SetActive(false);
@@ -69,7 +67,7 @@ public class LanaTransform : MonoBehaviour
             isLana = true;
             Lana = true;
         }
-        if (hit.collider.CompareTag("Car")&& Input.GetKeyDown(KeyCode.E) && isCar == false)
+        if (hit.collider.CompareTag("Car") && Input.GetKeyDown(KeyCode.E) && isCar == false)
         {
             CarObject.SetActive(false);
             PlayerRender.gameObject.SetActive(false);
@@ -80,7 +78,7 @@ public class LanaTransform : MonoBehaviour
             playerManager.jumpSpeed = 0;
         }
     }
-    public void Fantasma()//Bloquear inputs al destransformarse
+    public void Fantasma()//Vuelve a ser fantasma
     {
         if (Lana == true && Input.GetKeyDown(KeyCode.E))
         {
@@ -94,6 +92,7 @@ public class LanaTransform : MonoBehaviour
             CarRenderer.gameObject.SetActive(false);
             PlayerRender.gameObject.SetActive(true);
             playerManager.speed = playerManager.speed / 2;
+            playerManager.jumpSpeed = 5;
             Car = false;
             isCar = false;
         }
