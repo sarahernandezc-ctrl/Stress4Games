@@ -4,7 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< HEAD
   - muerte_Pelusa
+=======
+  - Cube
+  - Lana
+  - Car
+  - Pato
+  - agua
+  - cristal
+  - cristal2
+>>>>>>> 1d9f91bb5c5d430e068df3c14c61b7cd43565602
   layers:
   - Default
   - TransparentFX
