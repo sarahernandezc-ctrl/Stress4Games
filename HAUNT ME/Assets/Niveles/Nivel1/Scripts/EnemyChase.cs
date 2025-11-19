@@ -13,7 +13,7 @@ public class EnemyChase : MonoBehaviour
     public GameObject OjosMal;
     public GameObject DeathPanel;
 
-    public PlayerManager PlayerManager;
+    public PlayerF3 PlayerManager;
     private Animator EnemyAnim;
 
     public Transform pointA;
