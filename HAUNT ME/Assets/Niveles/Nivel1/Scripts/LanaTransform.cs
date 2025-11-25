@@ -15,7 +15,7 @@ public class LanaTransform : MonoBehaviour
     public GameObject PlayerRender;
     public GameObject LanaObject;
     public GameObject CarObject;
-    public PlayerF3 playerManager;
+    public PlayerManager playerManager;
 
     [Header("Transformations")]
     public bool Lana = false; 
