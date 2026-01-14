@@ -7,19 +7,19 @@ using UnityEngine.AI;
 
 public class EnemyChase : MonoBehaviour
 {
+    //Sara
     public NavMeshAgent agent;
 
     public GameObject OjosChill;
     public GameObject OjosMal;
     public GameObject DeathPanel;
 
-    public PlayerF3 PlayerManager;
+    public PlayerManager PlayerManager;
     private Animator EnemyAnim;
 
     public Transform pointA;
     public Transform pointB;
     public Transform player;
-    public Transform lana;
     private Transform target;
     
     public float stopDistance = 0.5f;

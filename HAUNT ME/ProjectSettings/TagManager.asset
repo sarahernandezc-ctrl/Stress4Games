@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Lana
+  - Car
+  - puerta
+  - cristal0
   layers:
   - Default
   - TransparentFX
