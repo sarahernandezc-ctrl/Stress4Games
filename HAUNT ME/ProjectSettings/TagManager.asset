@@ -3,36 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-  - muerte_Pelusa
-  - Cajas
-  - Pato
-  - cristal
-  - cristal2
-  - agua
-  - cristal_1
-  - cristal_2
-  - cristal_3
-=======
-<<<<<<< HEAD
-  - cristal
-  - cristal2
-  - Pato
-  - agua
-  - objeto
-  - muerte_Pelusa
-  - Cube
-  - Car
-  - Lana
-  - cristal3
-=======
-  - Lana
-  - Car
-  - puerta
-  - cristal0
->>>>>>> 4422a3ae9cd64a714f4b35d77a0a37e6f10bb6f3
->>>>>>> fbfde8da6aad43e3d8dc70f91755ec9200f1952a
+  tags: []
   layers:
   - Default
   - TransparentFX
