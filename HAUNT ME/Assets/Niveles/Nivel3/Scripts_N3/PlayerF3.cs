@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
@@ -14,6 +15,8 @@ public class PlayerF3 : MonoBehaviour
     private bool IsMoving;
     public LanaTransform LanaTransform;
 
+    public bool Muerte_Pelusa = false;
+
     [Header("Player Settings")]
     public float speed;
     public float jumpSpeed;
@@ -24,12 +27,14 @@ public class PlayerF3 : MonoBehaviour
     [Header("CameraFollow")]
     public Transform CameraTransform;
 
+    public GameObject Choque;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         animPlayer = GetComponent<Animator>();
         OriginalStepOffSet = characterController.stepOffset;
         CanUseInputs = true;
+        Choque.SetActive(false);
     }
 
     // Update is called once per frame
@@ -38,9 +43,19 @@ public class PlayerF3 : MonoBehaviour
 
         if (CanUseInputs == true) //&& IsAlive == true)
         {
-            
+
             Movement();
             Animation();
+
+
+        }
+
+        if (Muerte_Pelusa == true)
+        {
+
+            CanUseInputs = false;
+
+            Time.timeScale = 0.0f;
         }
     }
 
@@ -96,26 +111,34 @@ public class PlayerF3 : MonoBehaviour
             animPlayer.SetBool("IsMoving", true);
         }
 
-        
+
     }
 
 
-    public void OnCollisionEnter(Collision collision)
+    void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Debug.Log("He detectado una colisión con: " + collision.gameObject.name);
+        Debug.Log("He detectado una colisión con: " + hit.collider.name);
 
-        if (collision.gameObject.tag == "muerte_Pelusa")
+        if (hit.collider.CompareTag("muerte_Pelusa"))
         {
 
+            Muerte_Pelusa = true;
 
-           
             Debug.Log("He detectado una colisión con Muerte");
-            CanUseInputs = false;
 
 
 
         }
+        if (hit.collider.CompareTag("Cajas") && Input.GetKeyDown(KeyCode.K))
+        {
 
+            Choque.SetActive(true);
+
+            Debug.Log("He detectado una colisión con la Caja");
+
+
+
+        }
 
 
 

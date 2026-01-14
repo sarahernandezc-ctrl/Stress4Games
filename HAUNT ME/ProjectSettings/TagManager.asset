@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - muerte_Pelusa
+  - Cajas
+  - Pato
+  - cristal
+  - cristal2
+  - agua
+  - cristal_1
+  - cristal_2
+  - cristal_3
   layers:
   - Default
   - TransparentFX

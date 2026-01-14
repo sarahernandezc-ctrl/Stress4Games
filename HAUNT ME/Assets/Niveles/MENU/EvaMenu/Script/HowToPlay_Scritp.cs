@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Eva
 public class HowToPlay_Scritp : MonoBehaviour
 {
     // Start is called before the first frame update
