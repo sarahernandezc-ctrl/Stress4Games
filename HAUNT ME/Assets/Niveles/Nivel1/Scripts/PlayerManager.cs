@@ -78,7 +78,6 @@ public class PlayerManager : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up); //create the rotate in direction of movement
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);//rotate
             transform.rotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            //transform.forward = CameraTransform.forward;
         }
 
     }
