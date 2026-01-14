@@ -2113,7 +2113,7 @@ MonoBehaviour:
   cristal_1: {fileID: 485296791}
   cristal_2: {fileID: 998198137}
   cristal_3: {fileID: 1039763685}
-  puerta: {fileID: 0}
+  puerta: {fileID: 1446279873}
   abrir: 0
 --- !u!1 &496607547 stripped
 GameObject:
@@ -7037,6 +7037,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 99.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3266405881271760834, guid: 5b78a76de1fb4be4393b6fbc43c6268f,
+        type: 3}
+      propertyPath: m_TagString
+      value: puerta
+      objectReference: {fileID: 0}
     - target: {fileID: 5802252383497004349, guid: 5b78a76de1fb4be4393b6fbc43c6268f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -7076,11 +7081,42 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 574438376}
+    - targetCorrespondingSourceObject: {fileID: 3266405881271760834, guid: 5b78a76de1fb4be4393b6fbc43c6268f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1446279874}
     - targetCorrespondingSourceObject: {fileID: -2609345561549811183, guid: 5b78a76de1fb4be4393b6fbc43c6268f,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1292576415}
   m_SourcePrefab: {fileID: 100100000, guid: 5b78a76de1fb4be4393b6fbc43c6268f, type: 3}
+--- !u!1 &1446279873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3266405881271760834, guid: 5b78a76de1fb4be4393b6fbc43c6268f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1446279872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1446279874
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446279873}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3649248, y: 0.70334035, z: 0.29737654}
+  m_Center: {x: 0.061010107, y: 6.7762816e-11, z: 1.3628534e-11}
 --- !u!1001 &1471488695
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7905,7 +7941,7 @@ Transform:
   m_GameObject: {fileID: 1729024621}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: -0.085105, y: 10.759, z: -4.8841}
+  m_LocalPosition: {x: 39.4, y: 74, z: -43.4}
   m_LocalScale: {x: 0.63327646, y: 0.69549, z: 0.8349984}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9183,7 +9219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 1379838538}
-  remainingTime: 90
+  remainingTime: 999
 --- !u!114 &2093640742
 MonoBehaviour:
   m_ObjectHideFlags: 0

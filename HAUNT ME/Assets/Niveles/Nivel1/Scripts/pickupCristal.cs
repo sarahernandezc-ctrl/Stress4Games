@@ -48,16 +48,9 @@ public class pickupCristal : MonoBehaviour
 
             if (open == true)
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(4);
             }
         }
-
-
     }
-
-
-
-
-
 
 }

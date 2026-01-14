@@ -2418,7 +2418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &644144915
 Light:
   m_ObjectHideFlags: 0
@@ -2431,7 +2431,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.6
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -9550,7 +9550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c07bdb85f3ec502449f85b0a77770ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puedo_usar_imputs: 0
+  Can_UseInputs: 0
   cristales: {fileID: 977380911}
   puntos_cristales: 0
   cristal: {fileID: 593609360}
