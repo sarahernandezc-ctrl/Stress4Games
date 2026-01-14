@@ -12,7 +12,7 @@ public class Cristales : MonoBehaviour
     //Nerea
     // script para recoger cristales, contador, y que te permita atravesar la puerta
 
-    public bool puedo_usar_imputs;
+    public bool Can_UseInputs;
 
     //cristales
     public TMP_Text cristales;
@@ -28,7 +28,7 @@ public class Cristales : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        puedo_usar_imputs = true;
+        Can_UseInputs = true;
 
         abrir = false;
     }
