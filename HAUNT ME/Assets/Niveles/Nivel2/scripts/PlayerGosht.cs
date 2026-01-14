@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerGosht : MonoBehaviour
 {
-    // Sara
+    // nerea
 
     private CharacterController characterController;
     private float ySpeed;
@@ -12,6 +12,13 @@ public class PlayerGosht : MonoBehaviour
     public Animator animPlayer;
     private bool IsMoving;
     public PatoTransform PatoTransform;
+
+    //para el salto del fantasma
+    [Header("Salto fantasma")]
+
+    public int maxJumps = 1;
+    private int jumpCount = 0;
+
 
     [Header("Player Settings")]
     public float speed;
@@ -59,15 +66,29 @@ public class PlayerGosht : MonoBehaviour
         {
             characterController.stepOffset = OriginalStepOffSet;
             ySpeed = -0.5f;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                ySpeed = jumpSpeed;
-            }
+            jumpCount = 0; // resetea los saltos
+
         }
         else //not climbing walls
         {
             characterController.stepOffset = 0.0f;
         }
+
+        // Salto y DOBLE salto
+        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < maxJumps)
+        {
+            ySpeed = jumpSpeed;
+            jumpCount++;  // suma salto
+
+            
+        }
+
+        if (!characterController.isGrounded)
+        {
+            characterController.stepOffset = 0.0f;
+        }
+
+
 
         Vector3 velocity = movementDirection * magnitude;
         velocity.y = ySpeed;
@@ -103,6 +124,9 @@ public class PlayerGosht : MonoBehaviour
             animPlayer.SetBool("IsCar", true);
         }*/
     }
+
+
+
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {

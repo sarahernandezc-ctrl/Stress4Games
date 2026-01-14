@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - cristal
+  - cristal2
+  - Pato
+  - agua
+  - objeto
+  - muerte_Pelusa
+  - Cube
+  - Car
+  - Lana
+  - cristal3
   layers:
   - Default
   - TransparentFX
