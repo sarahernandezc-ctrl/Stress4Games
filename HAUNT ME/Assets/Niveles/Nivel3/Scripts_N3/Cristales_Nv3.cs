@@ -53,13 +53,13 @@ public class Cristales_Nv3 : MonoBehaviour
             Debug.Log("He detectado un cristal. Total: " + puntos_cristales);
         }
 
-        if ((other.gameObject.CompareTag("puerta")) && puntos_cristales >= 3)
+        if ((other.gameObject.CompareTag("puerta")) && puntos_cristales == 3)
         {
             abrir = true;
 
             if (abrir == true)
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(3);
             }
         }
 
