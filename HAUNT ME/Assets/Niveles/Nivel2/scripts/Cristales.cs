@@ -14,33 +14,56 @@ public class Cristales : MonoBehaviour
 
     public bool Can_UseInputs;
 
+    [Header("CRISTALES")]
     //cristales
     public TMP_Text cristales;
     public int puntos_cristales;
     public GameObject cristal;
     public GameObject cristal2;
     public GameObject cristal3;
+    public GameObject memory;
+    public float timer;
+    public bool memoryplaying;
 
+    [Header("PUERTA")]
     //puerta
     public GameObject puerta;
     public bool abrir;
+    public bool apagar;
 
     // Start is called before the first frame update
     void Start()
     {
+        apagar = false;
+
         Can_UseInputs = true;
 
         abrir = false;
+
+        memory.SetActive(false);
+        memoryplaying = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        cristales.text = "Cristales: " + puntos_cristales;
 
-      
+        if (apagar == false)
+        {
+            cristales.text = "Crystals: " + puntos_cristales;
 
-        
+            if (memoryplaying == true)
+            {
+                timer -= Time.deltaTime;
+                if (timer <= 0.0f)
+                {
+                    timer = 0.0f;
+                    memory.SetActive(false);
+                }
+            }
+
+        }
+
     }
 
 
@@ -54,9 +77,24 @@ public class Cristales : MonoBehaviour
             //y se desactiva el objeto para que no se pueda a volver a uasr el mismo
             other.gameObject.SetActive(false);
             Debug.Log("He detectado un cristal. Total: " + puntos_cristales);
+
+            if ( puntos_cristales >= 3)
+            {
+                apagar = true;
+
+                if (apagar == true)
+                {
+                    memory.SetActive(true);
+                    memoryplaying = true;
+                }
+                
+            }
+
+            apagar = false;
+           
         }
 
-        if ( (other.gameObject.CompareTag("puerta")) && puntos_cristales >= 3 )
+        if ( (other.gameObject.CompareTag("puertaa")) && puntos_cristales >= 3 )
         { 
             abrir = true;
 
