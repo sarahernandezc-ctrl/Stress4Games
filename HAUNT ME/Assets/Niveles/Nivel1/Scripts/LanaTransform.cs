@@ -16,6 +16,7 @@ public class LanaTransform : MonoBehaviour
     public GameObject PlayerRender;
     public GameObject LanaObject;
     public GameObject CarObject;
+    public GameObject DeathPanel;
     public PlayerManager playerManager;
 
     [Header("Transformations")]
@@ -29,6 +30,7 @@ public class LanaTransform : MonoBehaviour
         CarRenderer.SetActive(false);
         Car = false;
         Lana = false;
+        DeathPanel.SetActive(false);
     }
     void Update()
     {
@@ -55,7 +57,6 @@ public class LanaTransform : MonoBehaviour
             }
         }
     }
-
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.CompareTag("Lana") && Input.GetKeyDown(KeyCode.E) && isLana == false) // cuando el jugador toca este objeto
@@ -77,6 +78,11 @@ public class LanaTransform : MonoBehaviour
             Car = true;
             playerManager.speed = playerManager.speed * 2;
             playerManager.jumpSpeed = 0;
+        }
+        if (hit.collider.CompareTag("Enemy"))
+        {
+            DeathPanel.SetActive(true);
+            Time.timeScale = 0.0f;
         }
     }
     public void Fantasma()//Vuelve a ser fantasma

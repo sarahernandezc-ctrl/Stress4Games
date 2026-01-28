@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - cristal0
+  - Lana
+  - puerta
+  - Car
+  - Enemy
   layers:
   - Default
   - TransparentFX

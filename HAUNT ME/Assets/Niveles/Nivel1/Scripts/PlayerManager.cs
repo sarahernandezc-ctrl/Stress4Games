@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -9,9 +12,9 @@ public class PlayerManager : MonoBehaviour
     private CharacterController characterController;
     private float ySpeed;
     private float OriginalStepOffSet;
-    public Animator animPlayer;
-    private bool IsMoving;
     public LanaTransform LanaTransform;
+    public pickupCristal PickupCristales;
+    public GameObject PauseMenu;
 
     [Header("Player Settings")]
     public float speed;
@@ -23,12 +26,15 @@ public class PlayerManager : MonoBehaviour
     [Header("CameraFollow")]
     public Transform CameraTransform;
 
+ 
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        animPlayer = GetComponent<Animator>();
         OriginalStepOffSet = characterController.stepOffset;
         CanUseInputs = true;
+        PauseMenu.SetActive(false);
+       
     }
 
     // Update is called once per frame
@@ -37,9 +43,10 @@ public class PlayerManager : MonoBehaviour
         
         if (CanUseInputs == true) //&& IsAlive == true)
         {
-            Animation();
             Movement();
+            pausemenu();
         }
+        
     }
     
     public void Movement()
@@ -79,27 +86,49 @@ public class PlayerManager : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);//rotate
             transform.rotation = Quaternion.LookRotation(movementDirection, Vector3.up);
         }
-
+        
+        if (PickupCristales.videoPlaying == true)
+        {
+            CanUseInputs = false;
+        }
+        else
+        {
+            CanUseInputs = true;
+        }
     }
-    public void Animation()
+    public void pausemenu()
     {
-        if (IsMoving == false)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            animPlayer.SetBool("IsMoving", false);
-
-        }
-        else
-        {
-            animPlayer.SetBool("IsMoving", true);
-        }
-
-        if (LanaTransform.isCar == false)
-        {
-            animPlayer.SetBool("IsCar", false);
-        }
-        else
-        {
-            animPlayer.SetBool("IsCar", true);
+            if (!PauseMenu.activeInHierarchy)
+            {
+                PauseMenu.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                PauseMenu.SetActive(false);
+                Time.timeScale = 1.0f;
+            }
         }
     }
+    public void Resume()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+
+   
+   /* public void SaveGame()
+    {
+        SaveSistem.Save(this);
+        Debug.Log("Guardado " + characterController.transform.position);
+    }
+
+    public void LoadGame()
+    {
+        SaveSistem.Load(this);
+        Debug.Log("Cargado" + characterController.transform.position);
+    }*/
 }
