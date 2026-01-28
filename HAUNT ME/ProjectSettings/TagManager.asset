@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - muerte_Pelusa
+  - cristal_3
+  - cristal_2
+  - Cajas
+  - puerta
+  - cristal_1
+  - puerta2
   layers:
   - Default
   - TransparentFX

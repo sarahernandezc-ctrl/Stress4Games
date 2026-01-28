@@ -129,7 +129,7 @@ public class PlayerF3 : MonoBehaviour
 
 
         }
-        if (hit.collider.CompareTag("Cajas") && Input.GetKeyDown(KeyCode.K))
+        if (hit.collider.CompareTag("Cajas") && Input.GetKeyDown(KeyCode.F))
         {
 
             Choque.SetActive(true);
