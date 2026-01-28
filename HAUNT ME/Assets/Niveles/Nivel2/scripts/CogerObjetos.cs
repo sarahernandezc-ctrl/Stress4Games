@@ -1,74 +1,172 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 public class CogerObjetos : MonoBehaviour
 {
     //Nerea
 
-    public GameObject handPoint;
+    // public PatoTransform Pato_transform;
+    [Header("BRAZOS")]
+
+    public Transform handPoint;
+
+
+    private Rigidbody pickedRigbody;
+
+    [Header("INTERACCIONES")]
 
     private GameObject pickedObject = null;
+    private GameObject pickedpato = null;
+
+    //para saber cuando toca al objeto, para salir el panel
+    public bool dentroDeObjeto = false;
+    public bool dentroDePato = false;
+
+    [Header("TEXTO")]
+    public GameObject textdetect;
+    public GameObject textSoltar;
+    public GameObject textPato;
+
+    //public bool detecta;
+    // GameObject ultimoReconocido = null;
 
 
-
+    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //no sale el texto
+        textdetect.SetActive(false);
+        // detecta = false;
+
+        textSoltar.SetActive(false);
+
+        textPato.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         // quitar objeto con j
-       /* if (pickedObject != null)
+        /* if (pickedObject != null)
+         {
+             if (Input.GetKey("j"))
+             {
+                 pickedObject.GetComponent<Rigidbody>().useGravity = true;
+                 pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+
+                 pickedObject.gameObject.transform.SetParent(null);
+
+                 pickedObject = null;
+             }
+         }*/
+        if (!dentroDeObjeto && pickedObject == null)
         {
-            if (Input.GetKey("j"))
-            {
-                pickedObject.GetComponent<Rigidbody>().useGravity = true;
-                pickedObject.GetComponent<Rigidbody>().isKinematic = false;
+            textdetect.SetActive(false);
+        }
 
-                pickedObject.gameObject.transform.SetParent(null);
-
-                pickedObject = null;
-            }
-        }*/
-
-        if (pickedObject != null)
+        if (pickedObject != null && Input.GetKeyDown(KeyCode.R))
         {
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                pickedObject.GetComponent<Rigidbody>().useGravity = true;
-                pickedObject.GetComponent<Rigidbody>().isKinematic = false;
-                pickedObject.transform.SetParent(null);
-                pickedObject = null;
-            }
+            pickedRigbody.useGravity = true;
+            pickedRigbody.drag = 0f;
+            pickedRigbody.angularDrag = 0.05f;
+
+            pickedObject = null;
+            pickedRigbody = null;
+
+            textSoltar.SetActive(false);
+        }
+
+        
+       
+
+    }
+
+    void FixedUpdate()
+    {
+        // Mover la caja con física real
+        if (pickedObject != null && pickedRigbody != null)
+        {
+            pickedRigbody.MovePosition(handPoint.position);
+            pickedRigbody.MoveRotation(handPoint.rotation);
         }
     }
 
-
-    private void OnTriggerStay(Collider other)
+    public void OnTriggerStay(Collider other)
     {
-        //coger objeto con k
-
-        if (other.gameObject.CompareTag("objeto"))
+        if (other.CompareTag("objeto") && pickedObject == null)
         {
-            if (Input.GetKeyDown(KeyCode.K) && pickedObject == null)
+            // cuando las manos toquen el objeto, que salga el panel, es como decir que tocar el objeto es cierto
+            dentroDeObjeto = true;
+            //por lo tanto el texto se activa
+            textdetect.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                other.GetComponent<Rigidbody>().useGravity = false;
-                other.GetComponent<Rigidbody>().isKinematic = true;
-
-                other.transform.position = handPoint.transform.position;
-                other.transform.SetParent(handPoint.transform);
-
                 pickedObject = other.gameObject;
+                pickedRigbody = pickedObject.GetComponent<Rigidbody>();
+
+                pickedRigbody.useGravity = false;
+                pickedRigbody.drag = 50f;
+                pickedRigbody.angularDrag = 10f;
+
+                //es false, para que se quite el panel mientras lo sostienes el objeto
+                textdetect.SetActive(false);
+                textSoltar.SetActive(true);
+            }
+        }
+
+        // textPato.SetActive(false);
+
+        if (other.CompareTag("Pato") && pickedpato == null)
+        {
+            dentroDePato = true;
+
+            textPato.SetActive(true);
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                pickedpato = other.gameObject;
+                //es false, para que se quite el panel mientras lo sostienes el objeto
+                textPato.SetActive(false);
             }
         }
 
 
+       /* if (other.CompareTag("Pato") && !textPato.activeSelf)
+        {
+            dentroDePato = false;    
+            textPato.SetActive(true); // Mostrar texto cuando se acerque
+
+           
+        }*/
+
+            // textPato.SetActive(false);
+
+
+            /*if (!dentroDePato && pickedpato == null)
+            {
+                textPato.SetActive(false);
+            }*/
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("objeto"))
+        {
+            dentroDeObjeto = false;
+        }
+
+        if (other.CompareTag("Pato"))
+        {
+            textPato.SetActive(false);
+        }
+           
     }
 
 }

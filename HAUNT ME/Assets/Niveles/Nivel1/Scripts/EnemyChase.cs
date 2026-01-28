@@ -26,6 +26,7 @@ public class EnemyChase : MonoBehaviour
     public float detectRange = 5.0f;
     public float rotationSpeed;
     public bool IsAngry;
+    public bool IsPlayeDeath = false;
     
     private bool chasingPlayer = false;
 
@@ -78,6 +79,10 @@ public class EnemyChase : MonoBehaviour
                 agent.SetDestination(target.position);
             }
         } 
+        if (IsPlayeDeath == true)
+        {
+            Time.timeScale = 0.0f;
+        }
     }
     public void Animation()
     {
@@ -91,13 +96,16 @@ public class EnemyChase : MonoBehaviour
             EnemyAnim.SetBool("IsAngry", true);
         }
     }
+
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.CompareTag("Player"))
         {
+           /*Debug.Log("Muerto");
+            IsPlayeDeath = true;
             DeathPanel.SetActive(true);
             Debug.Log("Muerto");
-            PlayerManager.IsAlive = false;
+            PlayerManager.IsAlive = false;*/
         }
     }
 }

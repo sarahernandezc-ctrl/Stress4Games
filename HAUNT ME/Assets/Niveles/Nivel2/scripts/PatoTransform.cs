@@ -12,6 +12,8 @@ public class PatoTransform : MonoBehaviour
     //public bool isLana = false;
     //public bool isCar = false;
 
+    [Header("OBJ")]
+
     public Transform PointOfView;
     //public GameObject CarRenderer;
     public GameObject PatoRender;
@@ -34,6 +36,7 @@ public class PatoTransform : MonoBehaviour
     public bool pato = false; 
    // public bool Car = false;
     public float timer = 3.0f;
+
 
     void Start()
     {

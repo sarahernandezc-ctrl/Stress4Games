@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class teletrasporte : MonoBehaviour
 {
+    //Nerea
+
     [Header("Destino del teletransporte")]
     public Transform teleportDestination; // Objeto al que quieres teletransportar al jugador
 
