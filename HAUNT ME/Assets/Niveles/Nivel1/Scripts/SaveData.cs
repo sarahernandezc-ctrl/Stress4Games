@@ -16,7 +16,8 @@ public class SaveData : MonoBehaviour
     void Start()
     {
         //Load_Data();
-        
+        Player = GetComponent<CharacterController>();
+
     }
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class SaveData : MonoBehaviour
     }
     public void Load_Data()
     {
+        
         posX = PlayerPrefs.GetFloat("Possicion X");
         posY = PlayerPrefs.GetFloat("Possicion Y");
         posZ = PlayerPrefs.GetFloat("Possicion Z");
@@ -40,9 +42,9 @@ public class SaveData : MonoBehaviour
         Possition.x = posX;
         Possition.y = posY;
         Possition.z = posZ;
-
+        Player.enabled = false;
         Player.transform.position = Possition;
-
+        Player.enabled = true;
         Debug.Log("CARGADO!");
     }
 }
