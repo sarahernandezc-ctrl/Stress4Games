@@ -33,7 +33,7 @@ public class CogerObjetos : MonoBehaviour
     // GameObject ultimoReconocido = null;
 
 
-    
+
 
 
     // Start is called before the first frame update
@@ -82,8 +82,8 @@ public class CogerObjetos : MonoBehaviour
             textSoltar.SetActive(false);
         }
 
-        
-       
+
+
 
     }
 
@@ -138,21 +138,21 @@ public class CogerObjetos : MonoBehaviour
         }
 
 
-       /* if (other.CompareTag("Pato") && !textPato.activeSelf)
+        /* if (other.CompareTag("Pato") && !textPato.activeSelf)
+         {
+             dentroDePato = false;    
+             textPato.SetActive(true); // Mostrar texto cuando se acerque
+
+
+         }*/
+
+        // textPato.SetActive(false);
+
+
+        /*if (!dentroDePato && pickedpato == null)
         {
-            dentroDePato = false;    
-            textPato.SetActive(true); // Mostrar texto cuando se acerque
-
-           
+            textPato.SetActive(false);
         }*/
-
-            // textPato.SetActive(false);
-
-
-            /*if (!dentroDePato && pickedpato == null)
-            {
-                textPato.SetActive(false);
-            }*/
     }
 
     void OnTriggerExit(Collider other)
@@ -166,7 +166,7 @@ public class CogerObjetos : MonoBehaviour
         {
             textPato.SetActive(false);
         }
-           
+
     }
 
 }
