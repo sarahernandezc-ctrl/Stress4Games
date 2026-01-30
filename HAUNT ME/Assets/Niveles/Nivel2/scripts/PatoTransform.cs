@@ -21,7 +21,7 @@ public class PatoTransform : MonoBehaviour
     public GameObject PatoObject;
     //public GameObject CarObject;
     public PlayerGosht PlayerGosht;
-   
+
 
     [Header("Salto pato doble")]
 
@@ -33,23 +33,23 @@ public class PatoTransform : MonoBehaviour
 
 
     [Header("Transformations")]
-    public bool pato = false; 
-   // public bool Car = false;
+    public bool pato = false;
+    // public bool Car = false;
     public float timer = 3.0f;
 
 
     void Start()
     {
         PatoRender.SetActive(false);
-      // CarRenderer.SetActive(false);
-       // Car = false;
+        // CarRenderer.SetActive(false);
+        // Car = false;
         pato = false;
     }
     void Update()
     {
         if (isPato == true)
         {
-            
+
             PatoRender.SetActive(true);
             timer -= Time.deltaTime;
             if (timer <= 0)
@@ -74,9 +74,9 @@ public class PatoTransform : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.CompareTag("Pato") && Input.GetKeyDown(KeyCode.E) && isPato == false) // cuando el jugador toca este objeto
-        {            
+        {
             //PointOfView.localPosition = Vector3.zero;
-            
+
             Debug.Log("Colisión detectada con Pato");
 
             PatoObject.SetActive(false);
@@ -114,13 +114,13 @@ public class PatoTransform : MonoBehaviour
         }
 
 
-       /* if (Car == true  && Input.GetKeyDown(KeyCode.E))
-        {
-           // CarRenderer.gameObject.SetActive(false);
-            PlayerRender.gameObject.SetActive(true);
-            PlayerGosht.speed = PlayerGosht.speed / 2;
-            Car = false;
-           // isCar = false;
-        }*/
+        /* if (Car == true  && Input.GetKeyDown(KeyCode.E))
+         {
+            // CarRenderer.gameObject.SetActive(false);
+             PlayerRender.gameObject.SetActive(true);
+             PlayerGosht.speed = PlayerGosht.speed / 2;
+             Car = false;
+            // isCar = false;
+         }*/
     }
 }

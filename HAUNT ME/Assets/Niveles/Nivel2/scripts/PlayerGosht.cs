@@ -30,8 +30,10 @@ public class PlayerGosht : MonoBehaviour
     [Header("CameraFollow")]
     public Transform CameraTransform;
 
+
     [Header("UI")]
-    public GameObject menupausa;
+    public GameObject pausemenu;
+
 
     void Start()
     {
@@ -39,21 +41,21 @@ public class PlayerGosht : MonoBehaviour
         animPlayer = GetComponent<Animator>();
         OriginalStepOffSet = characterController.stepOffset;
         CanUseInputs = true;
-        menupausa.SetActive(false);
+        pausemenu.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         if (CanUseInputs == true) //&& IsAlive == true)
         {
             Animation();
             Movement();
-            menupause();
+            menupausa();
         }
     }
-    
+
     public void Movement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");//Detect horizontal inputs like a d <- ->
@@ -66,7 +68,7 @@ public class PlayerGosht : MonoBehaviour
         movementDirection.Normalize(); //Allways the same velocity
 
         ySpeed += Physics.gravity.y * Time.deltaTime; //gravity in y
-        
+
         if (characterController.isGrounded) //is on ground?
         {
             characterController.stepOffset = OriginalStepOffSet;
@@ -85,7 +87,7 @@ public class PlayerGosht : MonoBehaviour
             ySpeed = jumpSpeed;
             jumpCount++;  // suma salto
 
-            
+
         }
 
         if (!characterController.isGrounded)
@@ -120,14 +122,14 @@ public class PlayerGosht : MonoBehaviour
             animPlayer.SetBool("IsMoving", true);
         }
 
-       /* if (PatoTransform.isCar == false)
-        {
-            animPlayer.SetBool("IsCar", false);
-        }
-        else
-        {
-            animPlayer.SetBool("IsCar", true);
-        }*/
+        /* if (PatoTransform.isCar == false)
+         {
+             animPlayer.SetBool("IsCar", false);
+         }
+         else
+         {
+             animPlayer.SetBool("IsCar", true);
+         }*/
     }
 
 
@@ -150,28 +152,28 @@ public class PlayerGosht : MonoBehaviour
 
     }
 
-
-     public void menupause()
-     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+    public void menupausa()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) )
         {
-            if (!menupausa.activeInHierarchy)
+            if (!pausemenu.activeInHierarchy)
             {
-                menupausa.SetActive(true);
+                pausemenu.SetActive(true);
                 Time.timeScale = 0.0f;
             }
             else
             {
-                menupausa.SetActive(false);
+                pausemenu.SetActive(false);
                 Time.timeScale = 1.0f;
             }
+
+
         }
-     }
+    }
 
     public void resume()
     {
-        menupausa.SetActive(false);
+        pausemenu.SetActive(false);
         Time.timeScale = 1.0f;
     }
-
 }
