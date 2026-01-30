@@ -27,6 +27,9 @@ public class PlayerF3 : MonoBehaviour
     [Header("CameraFollow")]
     public Transform CameraTransform;
 
+    [Header("UI")]
+    public GameObject menupausa;
+
     public GameObject Choque;
     void Start()
     {
@@ -35,6 +38,8 @@ public class PlayerF3 : MonoBehaviour
         OriginalStepOffSet = characterController.stepOffset;
         CanUseInputs = true;
         Choque.SetActive(false);
+        menupausa.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -46,7 +51,7 @@ public class PlayerF3 : MonoBehaviour
 
             Movement();
             Animation();
-
+            menupause();
 
         }
 
@@ -143,4 +148,30 @@ public class PlayerF3 : MonoBehaviour
 
 
     }
+
+
+    public void menupause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!menupausa.activeInHierarchy)
+            {
+                menupausa.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
+            else 
+            { 
+               menupausa.SetActive(false);
+                Time.timeScale = 1.0f;
+            }
+        }
+
+    }
+
+    public void resume()
+    {
+        menupausa.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+    
 }
