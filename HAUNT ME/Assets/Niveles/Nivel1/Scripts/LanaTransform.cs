@@ -24,6 +24,9 @@ public class LanaTransform : MonoBehaviour
     public bool Car = false;
     public float timer = 3.0f;
 
+    [Header("Ui")]
+    public GameObject Text;
+
     void Start()
     {
         LanaRenderer.SetActive(false);
@@ -31,6 +34,7 @@ public class LanaTransform : MonoBehaviour
         Car = false;
         Lana = false;
         DeathPanel.SetActive(false);
+        Text.SetActive(false);
     }
     void Update()
     {
@@ -57,6 +61,22 @@ public class LanaTransform : MonoBehaviour
             }
         }
     }
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("fff");
+        if (other.CompareTag("Lana") || other.CompareTag("Car"))
+        {
+            Text.SetActive(true);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("dddd");
+        if (other.CompareTag("Lana") || other.CompareTag("Car"))
+        {
+            Text.SetActive(false);
+        }
+    }
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (hit.collider.CompareTag("Lana") && Input.GetKeyDown(KeyCode.E) && isLana == false) // cuando el jugador toca este objeto
@@ -68,6 +88,7 @@ public class LanaTransform : MonoBehaviour
             LanaRenderer.gameObject.SetActive(true);
             isLana = true;
             Lana = true;
+            Text.SetActive(false);
         }
         if (hit.collider.CompareTag("Car") && Input.GetKeyDown(KeyCode.E) && isCar == false)
         {
@@ -78,6 +99,7 @@ public class LanaTransform : MonoBehaviour
             Car = true;
             playerManager.speed = playerManager.speed * 2;
             playerManager.jumpSpeed = 0;
+            Text.SetActive(false);
         }
         if (hit.collider.CompareTag("Enemy"))
         {
