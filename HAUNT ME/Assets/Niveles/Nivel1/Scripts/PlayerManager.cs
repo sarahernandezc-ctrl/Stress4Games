@@ -117,18 +117,4 @@ public class PlayerManager : MonoBehaviour
         PauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
     }
-
-
-   
-   /* public void SaveGame()
-    {
-        SaveSistem.Save(this);
-        Debug.Log("Guardado " + characterController.transform.position);
-    }
-
-    public void LoadGame()
-    {
-        SaveSistem.Load(this);
-        Debug.Log("Cargado" + characterController.transform.position);
-    }*/
 }

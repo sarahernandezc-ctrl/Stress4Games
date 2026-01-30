@@ -85,12 +85,12 @@ public class pickupCristal : MonoBehaviour
     }
     public void SaveCristals()
     {
-        PlayerPrefs.SetFloat("Cristales", Cristal_Points);
+        PlayerPrefs.SetFloat("Cristal", Cristal_Points);
         Debug.Log("GUARDADO");
     }
     public void LoadCristals()
     {
-        CristalSave_points = PlayerPrefs.GetFloat("Cristales");
+        CristalSave_points = PlayerPrefs.GetFloat("Cristal");
         Cristal_Points = CristalSave_points;
         Debug.Log("Cargado");
     }
