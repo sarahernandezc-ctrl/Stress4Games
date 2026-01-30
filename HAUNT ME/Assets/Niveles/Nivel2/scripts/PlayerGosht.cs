@@ -30,12 +30,16 @@ public class PlayerGosht : MonoBehaviour
     [Header("CameraFollow")]
     public Transform CameraTransform;
 
+    [Header("UI")]
+    public GameObject menupausa;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         animPlayer = GetComponent<Animator>();
         OriginalStepOffSet = characterController.stepOffset;
         CanUseInputs = true;
+        menupausa.SetActive(false);
     }
 
     // Update is called once per frame
@@ -46,6 +50,7 @@ public class PlayerGosht : MonoBehaviour
         {
             Animation();
             Movement();
+            menupause();
         }
     }
     
@@ -145,5 +150,28 @@ public class PlayerGosht : MonoBehaviour
 
     }
 
+
+     public void menupause()
+     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!menupausa.activeInHierarchy)
+            {
+                menupausa.SetActive(true);
+                Time.timeScale = 0.0f;
+            }
+            else
+            {
+                menupausa.SetActive(false);
+                Time.timeScale = 1.0f;
+            }
+        }
+     }
+
+    public void resume()
+    {
+        menupausa.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
 
 }

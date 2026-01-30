@@ -17,7 +17,7 @@ public class Cristales : MonoBehaviour
     [Header("CRISTALES")]
     //cristales
     public TMP_Text cristales;
-    public int puntos_cristales;
+    public float puntos_cristales;
     public GameObject cristal;
     public GameObject cristal2;
     public GameObject cristal3;
@@ -30,6 +30,10 @@ public class Cristales : MonoBehaviour
     public GameObject puerta;
     public bool abrir;
     public bool apagar;
+
+    [Header("guardar")]
+    public float guardado_cristales;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -107,9 +111,18 @@ public class Cristales : MonoBehaviour
        
     }
 
+    public void Savecristals()
+    {
+        PlayerPrefs.SetFloat("Cristales" , puntos_cristales);
+
+    }
 
 
-   
+    public void Loadcristals()
+    {
+        guardado_cristales = PlayerPrefs.GetFloat("Cristales");
+        puntos_cristales = guardado_cristales;
 
+    }
 
 }
