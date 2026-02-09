@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Emit;
+using System.Threading;
+using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -18,46 +20,69 @@ public class LanaTransform : MonoBehaviour
     public GameObject CarObject;
     public GameObject DeathPanel;
     public PlayerManager playerManager;
+    public Timer timerTransform;
 
     [Header("Transformations")]
     public bool Lana = false; 
     public bool Car = false;
-    public float timer = 3.0f;
 
     [Header("Ui")]
     public GameObject Text;
+    public GameObject timertext;
+    // public TMP_Text timerTransform;
+    public float timer;
+    
+    
 
     void Start()
     {
+        timer = timerTransform.TimeRemaining;
         LanaRenderer.SetActive(false);
         CarRenderer.SetActive(false);
         Car = false;
         Lana = false;
         DeathPanel.SetActive(false);
         Text.SetActive(false);
+        
     }
     void Update()
     {
+        timertext.SetActive(false);
         if (isLana == true)
         {
-            
+            timerTransform.StartTimer = true;
             LanaRenderer.SetActive(true);
+            timertext.SetActive(true);
+            //timerTransform.text = "" + timer;
             timer -= Time.deltaTime;
+            Fantasma();
             if (timer <= 0)
             {
-                timer = 0;
-                Fantasma();
+                LanaRenderer.gameObject.SetActive(false);
+                PlayerRender.gameObject.SetActive(true);
+                Lana = false;
+                isLana = false;
+                timer = 3.0f;
             }
         }
         else if (isCar == true)
         {
-            
+            timerTransform.StartTimer = true;
+            timertext.SetActive(true);
+            //timerTransform.text = "" + timer;
             CarRenderer.SetActive(true);
             timer -= Time.deltaTime;
+            Fantasma();
             if (timer <= 0)
             {
-                timer = 0;
-                Fantasma();
+                timer = 3.0f;
+                CarRenderer.gameObject.SetActive(false);
+                PlayerRender.gameObject.SetActive(true);
+                playerManager.speed = playerManager.speed / 2;
+                playerManager.jumpSpeed = 5;
+                Car = false;
+                isCar = false;
+
             }
         }
     }

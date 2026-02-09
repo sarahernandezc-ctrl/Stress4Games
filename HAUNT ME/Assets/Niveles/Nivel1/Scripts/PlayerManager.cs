@@ -15,6 +15,9 @@ public class PlayerManager : MonoBehaviour
     public LanaTransform LanaTransform;
     public pickupCristal PickupCristales;
     public GameObject PauseMenu;
+    public GameObject PauseMenu2;
+    
+
 
     [Header("Player Settings")]
     public float speed;
@@ -34,7 +37,9 @@ public class PlayerManager : MonoBehaviour
         OriginalStepOffSet = characterController.stepOffset;
         CanUseInputs = true;
         PauseMenu.SetActive(false);
-       
+        PauseMenu2.SetActive(false);
+
+
     }
 
     // Update is called once per frame
@@ -103,13 +108,30 @@ public class PlayerManager : MonoBehaviour
             if (!PauseMenu.activeInHierarchy)
             {
                 PauseMenu.SetActive(true);
+                PauseMenu2.SetActive(false);
                 Time.timeScale = 0.0f;
             }
             else
             {
                 PauseMenu.SetActive(false);
+                PauseMenu2.SetActive(false);
                 Time.timeScale = 1.0f;
             }
+        }
+    }
+    public void pauseMenu2()
+    {
+        if (!PauseMenu2.activeInHierarchy)
+        {
+            PauseMenu.SetActive(false);
+            PauseMenu2.SetActive(true);
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            PauseMenu.SetActive(true);
+            PauseMenu2.SetActive(false);
+            Time.timeScale = 0.0f;
         }
     }
     public void Resume()
