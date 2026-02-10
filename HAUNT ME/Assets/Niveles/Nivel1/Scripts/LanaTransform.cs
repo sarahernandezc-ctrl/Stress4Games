@@ -53,12 +53,13 @@ public class LanaTransform : MonoBehaviour
             timerTransform.StartTimer = true;
             LanaRenderer.SetActive(true);
             timertext.SetActive(true);
-            //timerTransform.text = "" + timer;
             timer -= Time.deltaTime;
             Fantasma();
             if (timer <= 0)
             {
                 LanaRenderer.gameObject.SetActive(false);
+                LanaObject.gameObject.SetActive(true);
+                LanaObject.gameObject.SetActive(true);
                 PlayerRender.gameObject.SetActive(true);
                 Lana = false;
                 isLana = false;
@@ -69,7 +70,6 @@ public class LanaTransform : MonoBehaviour
         {
             timerTransform.StartTimer = true;
             timertext.SetActive(true);
-            //timerTransform.text = "" + timer;
             CarRenderer.SetActive(true);
             timer -= Time.deltaTime;
             Fantasma();
@@ -77,6 +77,7 @@ public class LanaTransform : MonoBehaviour
             {
                 timer = 3.0f;
                 CarRenderer.gameObject.SetActive(false);
+                CarObject.gameObject.SetActive(true);
                 PlayerRender.gameObject.SetActive(true);
                 playerManager.speed = playerManager.speed / 2;
                 playerManager.jumpSpeed = 5;
@@ -138,12 +139,14 @@ public class LanaTransform : MonoBehaviour
         {
             LanaRenderer.gameObject.SetActive(false);
             PlayerRender.gameObject.SetActive(true);
+            LanaObject.gameObject.SetActive(true);
             Lana = false;
             isLana = false;
         }
         if (Car == true  && Input.GetKeyDown(KeyCode.E))
         {
             CarRenderer.gameObject.SetActive(false);
+            CarObject.gameObject.SetActive(true);
             PlayerRender.gameObject.SetActive(true);
             playerManager.speed = playerManager.speed / 2;
             playerManager.jumpSpeed = 5;
