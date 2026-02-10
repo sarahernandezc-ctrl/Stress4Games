@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class Timer: MonoBehaviour
+public class timer : MonoBehaviour
 {
-    //Script Eva
-
     [SerializeField] TextMeshProUGUI timer_Text;
     //[SerializeField] 
     public float TimeRemaining;
 
     public bool StartTimer = false;
 
+    //bool pauseMenu = false;     Cuando esten los menús.
 
     // Update is called once per frame
     void Update()
@@ -27,7 +26,7 @@ public class Timer: MonoBehaviour
             else if (TimeRemaining < 0.0f)
             {
                 TimeRemaining = 0.0f;
-                
+                //Time.timeScale = 0.0f;
             }
             int minutes = Mathf.FloorToInt(TimeRemaining / 60);
             int seconds = Mathf.FloorToInt(TimeRemaining % 60);
@@ -35,5 +34,4 @@ public class Timer: MonoBehaviour
         }
 
     }
-
 }

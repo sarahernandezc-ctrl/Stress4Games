@@ -101,11 +101,8 @@ public class EnemyChase : MonoBehaviour
     {
         if (hit.collider.CompareTag("Player"))
         {
-           /*Debug.Log("Muerto");
-            IsPlayeDeath = true;
             DeathPanel.SetActive(true);
-            Debug.Log("Muerto");
-            PlayerManager.IsAlive = false;*/
+            Time.timeScale = 0.0f;
         }
     }
 }
