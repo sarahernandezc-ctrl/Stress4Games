@@ -33,6 +33,7 @@ public class PlayerGosht : MonoBehaviour
 
     [Header("UI")]
     public GameObject pausemenu;
+    public GameObject pausemenu2;
 
 
     void Start()
@@ -42,6 +43,7 @@ public class PlayerGosht : MonoBehaviour
         OriginalStepOffSet = characterController.stepOffset;
         CanUseInputs = true;
         pausemenu.SetActive(false);
+        pausemenu2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -154,7 +156,7 @@ public class PlayerGosht : MonoBehaviour
 
     public void menupausa()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) )
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!pausemenu.activeInHierarchy)
             {
@@ -164,12 +166,31 @@ public class PlayerGosht : MonoBehaviour
             else
             {
                 pausemenu.SetActive(false);
+                pausemenu2.SetActive(false);
                 Time.timeScale = 1.0f;
             }
 
 
         }
     }
+
+    public void menupausa2()
+    {
+        if (!pausemenu2.activeInHierarchy)
+        {
+            pausemenu.SetActive(false);
+            pausemenu2.SetActive(true);
+            //Time.timeScale = 0.0f;
+        }
+        else
+        {
+            pausemenu.SetActive(true);
+            pausemenu2.SetActive(false);
+            // Time.timeScale = 0.0f;
+        }
+    }
+
+
 
     public void resume()
     {
