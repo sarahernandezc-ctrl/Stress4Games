@@ -29,6 +29,7 @@ public class PlayerF3 : MonoBehaviour
 
     [Header("UI")]
     public GameObject menupausa;
+    public GameObject menupausa2;
 
     public GameObject Choque;
     void Start()
@@ -39,7 +40,7 @@ public class PlayerF3 : MonoBehaviour
         CanUseInputs = true;
         Choque.SetActive(false);
         menupausa.SetActive(false);
-
+        menupausa2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -157,17 +158,37 @@ public class PlayerF3 : MonoBehaviour
             if (!menupausa.activeInHierarchy)
             {
                 menupausa.SetActive(true);
+                menupausa2.SetActive(false);
                 Time.timeScale = 0.0f;
             }
             else 
             { 
-               menupausa.SetActive(false);
+                menupausa.SetActive(false);
+                menupausa2.SetActive(false);
                 Time.timeScale = 1.0f;
             }
         }
 
     }
 
+
+   
+    public void menupause2()
+    {
+        if (!menupausa2.activeInHierarchy)
+        {
+            menupausa.SetActive(false);
+            menupausa2.SetActive(true);
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            menupausa.SetActive(true);
+            menupausa2.SetActive(false);
+            Time.timeScale = 0.0f;
+        }
+    }
+ 
     public void resume()
     {
         menupausa.SetActive(false);
