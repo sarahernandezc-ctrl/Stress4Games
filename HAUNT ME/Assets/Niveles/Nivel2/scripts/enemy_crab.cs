@@ -12,7 +12,7 @@ public class Enemy_crab : MonoBehaviour
    
     public GameObject DeathPanel;
 
-    public PlayerF3 PlayerManager;
+    public PlayerGosht PlayerManager;
     private Animator EnemyAnim;
 
     public Transform pointA;

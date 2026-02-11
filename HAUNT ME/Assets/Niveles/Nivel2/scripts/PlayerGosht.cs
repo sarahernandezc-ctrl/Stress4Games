@@ -12,6 +12,7 @@ public class PlayerGosht : MonoBehaviour
     public Animator animPlayer;
     private bool IsMoving;
     public PatoTransform PatoTransform;
+    public GameObject DeathPanel;
 
     //para el salto del fantasma
     [Header("Salto fantasma")]
@@ -38,6 +39,7 @@ public class PlayerGosht : MonoBehaviour
 
     void Start()
     {
+        DeathPanel.SetActive(false);
         characterController = GetComponent<CharacterController>();
         animPlayer = GetComponent<Animator>();
         OriginalStepOffSet = characterController.stepOffset;
@@ -148,6 +150,11 @@ public class PlayerGosht : MonoBehaviour
             CanUseInputs = false;
             //hace que cuando choque no le permita moverse y se pare
 
+            Time.timeScale = 0.0f;
+        }
+        if (hit.collider.CompareTag("Enemy"))
+        {
+            DeathPanel.SetActive(true);
             Time.timeScale = 0.0f;
         }
 
