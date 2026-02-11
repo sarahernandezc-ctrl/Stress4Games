@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - agua
+  - objeto
+  - cristal3
+  - cristal2
+  - cristal
+  - puertaa
+  - Pato
+  - Enemy
   layers:
   - Default
   - TransparentFX

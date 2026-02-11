@@ -22,6 +22,7 @@ public class PatoTransform : MonoBehaviour
     //public GameObject CarObject;
     public PlayerGosht PlayerGosht;
     public timer tiempo_transform;
+    public GameObject DeathPanel;
 
 
     [Header("Salto pato doble")]
@@ -42,6 +43,7 @@ public class PatoTransform : MonoBehaviour
 
     void Start()
     {
+        DeathPanel.SetActive(false);
         PatoRender.SetActive(false);
         // CarRenderer.SetActive(false);
         // Car = false;
@@ -116,6 +118,14 @@ public class PatoTransform : MonoBehaviour
             //los max de saltos que hace el pato
             PlayerGosht.maxJumps = 2;
             // timerCurrent = timer; // reiniciar temporizador al transformarse
+        }
+
+
+
+        if (hit.collider.CompareTag("Enemy"))
+        {
+            DeathPanel.SetActive(true);
+            Time.timeScale = 0.0f;
         }
         /*  if (hit.collider.CompareTag("Car")&& Input.GetKeyDown(KeyCode.E) && isCar == false)
           {
