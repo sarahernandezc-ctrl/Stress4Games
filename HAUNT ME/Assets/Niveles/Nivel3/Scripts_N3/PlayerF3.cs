@@ -32,6 +32,7 @@ public class PlayerF3 : MonoBehaviour
     public GameObject menupausa2;
 
     public GameObject Choque;
+    public GameObject Deathpanel;
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -41,6 +42,7 @@ public class PlayerF3 : MonoBehaviour
         Choque.SetActive(false);
         menupausa.SetActive(false);
         menupausa2.SetActive(false);
+        Deathpanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -132,6 +134,8 @@ public class PlayerF3 : MonoBehaviour
 
             Debug.Log("He detectado una colisión con Muerte");
 
+          
+
 
 
         }
@@ -144,6 +148,12 @@ public class PlayerF3 : MonoBehaviour
 
 
 
+        }
+
+        if (hit.collider.CompareTag("muerte_Pelusa"))
+        {
+            Deathpanel.SetActive(true);
+            Time.timeScale = 0.0f;
         }
 
 

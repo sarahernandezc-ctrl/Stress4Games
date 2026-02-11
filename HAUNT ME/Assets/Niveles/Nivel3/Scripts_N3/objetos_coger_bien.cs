@@ -15,16 +15,16 @@ public class objetos_coger_bien : MonoBehaviour
     [Header("INTERACCIONES")]
 
     private GameObject pickedObject = null;
-    private GameObject pickedpato = null;
+   
 
     //para saber cuando toca al objeto, para salir el panel
     public bool dentroDeObjeto = false;
-    public bool dentroDePato = false;
+    
 
     [Header("TEXTO")]
     public GameObject textdetect;
     public GameObject textSoltar;
-    public GameObject textPato;
+   
 
     //public bool detecta;
     // GameObject ultimoReconocido = null;
@@ -42,7 +42,7 @@ public class objetos_coger_bien : MonoBehaviour
 
         textSoltar.SetActive(false);
 
-        textPato.SetActive(false);
+      
 
     }
 
@@ -120,19 +120,7 @@ public class objetos_coger_bien : MonoBehaviour
 
         // textPato.SetActive(false);
 
-        if (other.CompareTag("Pato") && pickedpato == null)
-        {
-            dentroDePato = true;
-
-            textPato.SetActive(true);
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                pickedpato = other.gameObject;
-                //es false, para que se quite el panel mientras lo sostienes el objeto
-                textPato.SetActive(false);
-            }
-        }
+        
 
 
         /* if (other.CompareTag("Pato") && !textPato.activeSelf)
@@ -159,10 +147,6 @@ public class objetos_coger_bien : MonoBehaviour
             dentroDeObjeto = false;
         }
 
-        if (other.CompareTag("Pato"))
-        {
-            textPato.SetActive(false);
-        }
 
     }
 
