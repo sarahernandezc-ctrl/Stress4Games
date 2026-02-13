@@ -81,7 +81,9 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
 
-        EditorApplication.Exit(0);
+#if UNITY_EDITOR
+        //EditorApplication.Exit(0);
+#endif
     }
 
     public void Inputs()

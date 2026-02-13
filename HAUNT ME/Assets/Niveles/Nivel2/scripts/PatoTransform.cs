@@ -23,6 +23,7 @@ public class PatoTransform : MonoBehaviour
     public PlayerGosht PlayerGosht;
     public timer tiempo_transform;
     public GameObject DeathPanel;
+    public GameObject TiempoTransform;
 
 
     [Header("Salto pato doble")]
@@ -43,31 +44,17 @@ public class PatoTransform : MonoBehaviour
 
     void Start()
     {
+        TiempoTransform.SetActive(false);
         DeathPanel.SetActive(false);
         PatoRender.SetActive(false);
-        // CarRenderer.SetActive(false);
-        // Car = false;
         pato = false;
-       // timerCurrent = 0.0f;
        timerCurrent = tiempo_transform.TimeRemaining;
     }
     void Update()
     {
         if (isPato == true)
         {
-            // PatoObject.gameObject.SetActive(true);
-            /* PatoRender.SetActive(true);
-            Fantasma();
-            timer -= Time.deltaTime;
-            if (timer <= 0)
-            {
-                timer = 3;
-                PatoRender.gameObject.SetActive(false);
-                PlayerRender.gameObject.SetActive(true);
 
-               
-            }
-            */
 
             if (timerCurrent <= 0f)
             {
@@ -87,17 +74,6 @@ public class PatoTransform : MonoBehaviour
             }
 
         }
-        /* else if (isCar == true)
-         {
-
-             CarRenderer.SetActive(true);
-             timer -= Time.deltaTime;
-             if (timer <= 0)
-             {
-                 timer = 0;
-                 Fantasma();
-             }
-         }*/
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -105,7 +81,7 @@ public class PatoTransform : MonoBehaviour
         if (hit.collider.CompareTag("Pato") && Input.GetKeyDown(KeyCode.E) && isPato == false) // cuando el jugador toca este objeto
         {
             //PointOfView.localPosition = Vector3.zero;
-
+            TiempoTransform.SetActive(true);
             Debug.Log("Colisión detectada con Pato");
 
             tiempo_transform.StartTimer = true;
@@ -120,29 +96,15 @@ public class PatoTransform : MonoBehaviour
             // timerCurrent = timer; // reiniciar temporizador al transformarse
         }
 
-
-
         if (hit.collider.CompareTag("Enemy"))
         {
             DeathPanel.SetActive(true);
             Time.timeScale = 0.0f;
         }
-        /*  if (hit.collider.CompareTag("Car")&& Input.GetKeyDown(KeyCode.E) && isCar == false)
-          {
-              //CarObject.SetActive(false);
-              PlayerRender.gameObject.SetActive(false);
-             // CarRenderer.gameObject.SetActive(true);
-              //isCar = true;
-              Car = true;
-              PlayerGosht.speed = PlayerGosht.speed * 2;
-              PlayerGosht.jumpSpeed = 0;
-          }*/
     }
     public void Fantasma()//Bloquear inputs al destransformarse
     {
         //ccuando vuelve a fantasma, que solo sea un salto
-
-
 
         if (pato == true && Input.GetKeyDown(KeyCode.E))
         {
@@ -152,15 +114,5 @@ public class PatoTransform : MonoBehaviour
             isPato = false;
             PlayerGosht.maxJumps = 1;
         }
-
-
-        /* if (Car == true  && Input.GetKeyDown(KeyCode.E))
-         {
-            // CarRenderer.gameObject.SetActive(false);
-             PlayerRender.gameObject.SetActive(true);
-             PlayerGosht.speed = PlayerGosht.speed / 2;
-             Car = false;
-            // isCar = false;
-         }*/
     }
 }

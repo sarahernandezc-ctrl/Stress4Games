@@ -97,6 +97,6 @@ public class options : MonoBehaviour
     {
         Application.Quit();
 
-        EditorApplication.Exit(0);
+        //EditorApplication.Exit(0);
     }
 }

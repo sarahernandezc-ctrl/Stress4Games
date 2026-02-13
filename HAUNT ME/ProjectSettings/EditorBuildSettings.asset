@@ -6,11 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Niveles/MENU/UI/Inicio/Inicio.unity
-    guid: d73013eaa572b88419ffbb7d4770319f
-  - enabled: 1
     path: "Assets/Niveles/Cinem\xE1tica/CInematic_1.unity"
     guid: 444b12e0a6aa69a429248412bec92d0a
+  - enabled: 1
+    path: Assets/Niveles/MENU/UI/Inicio/Inicio.unity
+    guid: d73013eaa572b88419ffbb7d4770319f
   - enabled: 1
     path: Assets/Niveles/Nivel3/Nivel3.unity
     guid: 9c28c2c8b96dde74b82befd901a57fe8

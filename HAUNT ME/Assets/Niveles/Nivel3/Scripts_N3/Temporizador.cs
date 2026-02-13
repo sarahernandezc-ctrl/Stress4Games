@@ -6,11 +6,9 @@ using TMPro;
 public class Temporizador : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
+    public GameObject TimerTextGameObject;
     [SerializeField] float remainingTime;
-
-    
-   //bool pauseMenu = false;     Cuando esten los menús.
-
+    public Cristales_Nv3 CristlesNVL3;
     // Update is called once per frame
     void Update()
     {
@@ -26,21 +24,14 @@ public class Temporizador : MonoBehaviour
             remainingTime = 0;
             Time.timeScale = 0.0f;
         }
+        if (CristlesNVL3.puntos_cristales == 3)
+        {
+            TimerTextGameObject.SetActive(false);
+            Time.timeScale = 1.0f;
+        }
         int minutes =  Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
-
-    /*public void Pause()   //Cuando esten los menús
-    {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0;
-    }*/
-
-    /*public void Resume()   //Cuando esten los menús
-   {
-       pauseMenu.SetActive(false);
-       Time.timeScale = 1;
-   }*/
 
 }

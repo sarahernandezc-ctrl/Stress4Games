@@ -75,7 +75,7 @@ public class pickupCristal : MonoBehaviour
             if (open == true)
             {
                 SceneManager.LoadScene(4);
-                Time.timeScale = 0.0f;
+                Time.timeScale = 1.0f;
             }
             else
             {

@@ -9,6 +9,7 @@ public class optionss : MonoBehaviour
     //nerea
     public void volver_a_inicio_2()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Inicio2");
     }
 
@@ -16,6 +17,6 @@ public class optionss : MonoBehaviour
     {
         Application.Quit();
 
-        EditorApplication.Exit(0);
+        //EditorApplication.Exit(0);
     }
 }

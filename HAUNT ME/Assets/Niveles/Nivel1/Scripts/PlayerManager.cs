@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -70,7 +71,7 @@ public class PlayerManager : MonoBehaviour
         if (characterController.isGrounded) //is on ground?
         {
             characterController.stepOffset = OriginalStepOffSet;
-            ySpeed = -0.5f;
+            //ySpeed = -0.5f;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 ySpeed = jumpSpeed;
@@ -92,14 +93,15 @@ public class PlayerManager : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(movementDirection, Vector3.up);
         }
         
-        if (PickupCristales.videoPlaying == true)
+        //si estoe sta conectado, lo que hace es que no me deje moverme cuando acaba el recuerdo
+      /*  if (PickupCristales.videoPlaying == true)
         {
             CanUseInputs = false;
         }
         else
         {
             CanUseInputs = true;
-        }
+        }*/
     }
     public void pausemenu()
     {
@@ -138,5 +140,15 @@ public class PlayerManager : MonoBehaviour
     {
         PauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
+    }
+    public void volver_a_inicio_2()
+    {
+        SceneManager.LoadScene("Inicio2");
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+
+        //EditorApplication.Exit(0);
     }
 }

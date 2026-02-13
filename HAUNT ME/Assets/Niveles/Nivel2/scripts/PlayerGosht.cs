@@ -125,18 +125,7 @@ public class PlayerGosht : MonoBehaviour
         {
             animPlayer.SetBool("IsMoving", true);
         }
-
-        /* if (PatoTransform.isCar == false)
-         {
-             animPlayer.SetBool("IsCar", false);
-         }
-         else
-         {
-             animPlayer.SetBool("IsCar", true);
-         }*/
     }
-
-
 
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -146,7 +135,7 @@ public class PlayerGosht : MonoBehaviour
         {
             Debug.Log("He detectado una colision con:muerte");
 
-
+            DeathPanel.SetActive(true);
             CanUseInputs = false;
             //hace que cuando choque no le permita moverse y se pare
 

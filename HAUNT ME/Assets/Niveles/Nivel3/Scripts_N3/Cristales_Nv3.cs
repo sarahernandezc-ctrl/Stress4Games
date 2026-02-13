@@ -33,6 +33,8 @@ public class Cristales_Nv3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        apagar = false;
+
         puedo_usar_imputs = true;
 
         abrir = false;
@@ -44,21 +46,28 @@ public class Cristales_Nv3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cristales.text = "Crystals: " + puntos_cristales;
-
-        if (memory_2 == true)
+        if (apagar == false)
         {
-            timer_2 -= Time.deltaTime;
-            if (timer_2 <= 0.0f)
-            {
-                timer_2 = 0.0f;
-                memory_2.SetActive (false);
 
+       
+            cristales.text = "Crystals: " + puntos_cristales;
+
+            if (memory_2 == true)
+            {
+                timer_2 -= Time.deltaTime;
+                if (timer_2 <= 0.0f)
+                {
+                    timer_2 = 0.0f;
+                    memory_2.SetActive(false);
+
+                }
             }
         }
 
-
     }
+
+
+
 
 
     private void OnTriggerEnter(Collider other)

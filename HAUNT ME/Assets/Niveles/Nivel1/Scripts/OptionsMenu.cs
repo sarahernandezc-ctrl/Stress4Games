@@ -18,6 +18,6 @@ public class OptionsMenu : MonoBehaviour
     {
         Application.Quit();
 
-        EditorApplication.Exit(0);
+        //EditorApplication.Exit(0);
     }
 }

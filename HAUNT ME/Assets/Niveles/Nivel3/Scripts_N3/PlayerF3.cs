@@ -31,7 +31,7 @@ public class PlayerF3 : MonoBehaviour
     public GameObject menupausa;
     public GameObject menupausa2;
 
-    public GameObject Choque;
+    
     public GameObject Deathpanel;
     void Start()
     {
@@ -39,7 +39,7 @@ public class PlayerF3 : MonoBehaviour
         animPlayer = GetComponent<Animator>();
         OriginalStepOffSet = characterController.stepOffset;
         CanUseInputs = true;
-        Choque.SetActive(false);
+       
         menupausa.SetActive(false);
         menupausa2.SetActive(false);
         Deathpanel.SetActive(false);
@@ -142,7 +142,7 @@ public class PlayerF3 : MonoBehaviour
         if (hit.collider.CompareTag("Cajas") && Input.GetKeyDown(KeyCode.F))
         {
 
-            Choque.SetActive(true);
+           
 
             Debug.Log("He detectado una colisión con la Caja");
 

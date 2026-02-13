@@ -1390,7 +1390,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1630,7 +1630,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 322110603}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8197403881843171143}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &322110603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2141,6 +2153,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1853094968961178454, guid: e924256582a33f84d80ec8c92a5a39a7,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: e924256582a33f84d80ec8c92a5a39a7,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: e924256582a33f84d80ec8c92a5a39a7,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1853094968961178454, guid: e924256582a33f84d80ec8c92a5a39a7,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d5e03b043c46de7409c0902994604bbf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2225,26 +2257,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: cristal0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1853094968961178454, guid: e924256582a33f84d80ec8c92a5a39a7,
-        type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1853094968961178454, guid: e924256582a33f84d80ec8c92a5a39a7,
-        type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1853094968961178454, guid: e924256582a33f84d80ec8c92a5a39a7,
-        type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1853094968961178454, guid: e924256582a33f84d80ec8c92a5a39a7,
-        type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2842,8 +2854,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DataSave, Assembly-CSharp
+      - m_Target: {fileID: 1739376973248692510}
+        m_TargetAssemblyTypeName: SaveData, Assembly-CSharp
         m_MethodName: Load_Data
         m_Mode: 1
         m_Arguments:
@@ -2854,9 +2866,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Cristales, Assembly-CSharp
-        m_MethodName: Loadcristals
+      - m_Target: {fileID: 4413132354011280485}
+        m_TargetAssemblyTypeName: pickupCristal, Assembly-CSharp
+        m_MethodName: LoadCristals
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4226,8 +4238,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DataSave, Assembly-CSharp
+      - m_Target: {fileID: 1739376973248692510}
+        m_TargetAssemblyTypeName: SaveData, Assembly-CSharp
         m_MethodName: Save_Data
         m_Mode: 1
         m_Arguments:
@@ -4238,9 +4250,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Cristales, Assembly-CSharp
-        m_MethodName: Savecristals
+      - m_Target: {fileID: 4413132354011280485}
+        m_TargetAssemblyTypeName: pickupCristal, Assembly-CSharp
+        m_MethodName: SaveCristals
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4351,9 +4363,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1370903479191271464}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 8197403881843171143}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: volver_a_inicio_2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4610,7 +4622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &800513157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5016,7 +5028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &930339262
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6070,9 +6082,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerGosht, Assembly-CSharp
-        m_MethodName: resume
+      - m_Target: {fileID: 8197403881843171143}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6489,7 +6501,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1178816918}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8197403881843171143}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: volver_a_inicio_2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1178816918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10225,9 +10249,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2084564301}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 8197403881843171143}
+        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15492,7 +15516,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 1217250039}
   PauseMenu2: {fileID: 559660600}
   speed: 5
-  jumpSpeed: 8
+  jumpSpeed: 9
   rotationSpeed: 300
   CanUseInputs: 0
   IsAlive: 0
